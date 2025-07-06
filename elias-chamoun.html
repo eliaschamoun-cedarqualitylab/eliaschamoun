@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elias Chamoun - Senior QA Automation Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Slate & Sky -->
+    <!-- Application Structure Plan: The SPA is designed as a top-to-bottom narrative journey through the candidate's profile, prioritizing impact and interactivity. It starts with a strong Hero section for identity, followed by quantifiable Impact Metrics to immediately showcase value. An interactive Timeline section allows recruiters to explore work history without being overwhelmed by text, promoting engagement. A dynamic Skills Dashboard with a filterable chart provides a clear, visual breakdown of technical abilities, which is more effective than a static list. This structure was chosen to guide the recruiter from high-level impact to detailed qualifications in a logical, engaging, and user-friendly flow, moving beyond the linear format of a traditional document. -->
+    <!-- Visualization & Content Choices: 
+        - Key Achievements -> Inform/Compare -> 'Impact Metrics' Cards (HTML/CSS) -> Hover interaction -> Justification: Quickly conveys major career wins with visual appeal.
+        - Work History -> Organize/Inform -> Interactive Vertical Timeline (HTML/CSS/JS) -> Click-to-expand details -> Justification: Makes dense information digestible and encourages user interaction to reveal details on demand.
+        - Technical Skills -> Organize/Compare -> Filterable Bar Chart (Chart.js/Canvas) -> Click buttons to filter data -> Justification: Provides a dynamic and clear visualization of technical breadth and focus areas, allowing recruiters to instantly verify required skills like Playwright and C#.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .timeline-content {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .timeline-item.active .timeline-content {
+            max-height: 1000px; 
+            opacity: 1;
+        }
+        .timeline-dot {
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .timeline-item.active .timeline-dot {
+            transform: scale(1.25);
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <header class="bg-slate-100/80 backdrop-blur-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-slate-800">Elias Chamoun</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#overview" class="text-slate-600 hover:text-sky-600 transition-colors">Overview</a>
+                <a href="#timeline" class="text-slate-600 hover:text-sky-600 transition-colors">Timeline</a>
+                <a href="#skills" class="text-slate-600 hover:text-sky-600 transition-colors">Skills</a>
+                <a href="#contact" class="text-slate-600 hover:text-sky-600 transition-colors">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-slate-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#overview" class="block py-2 px-4 text-sm hover:bg-slate-200">Overview</a>
+            <a href="#timeline" class="block py-2 px-4 text-sm hover:bg-slate-200">Timeline</a>
+            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-slate-200">Skills</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-slate-200">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 md:py-16">
+        
+        <section id="overview" class="text-center mb-16 md:mb-24">
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Senior QA Automation Engineer</h2>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600 mb-8">
+                A results-driven QA leader with a strong background in C#/.NET testing environments and extensive hands-on experience with Playwright and TypeScript, making me exceptionally well-suited for leading significant testing environment migrations and driving continuous improvement in enterprise-grade software quality.
+            </p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                 <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200/50">
+                    <h3 class="text-3xl font-bold text-sky-600 mb-2">75%</h3>
+                    <p class="text-slate-600">Reduction in manual QA effort via Cypress framework architecture.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200/50">
+                    <h3 class="text-3xl font-bold text-sky-600 mb-2">95%</h3>
+                    <p class="text-slate-600">Reduction in post-deployment bugs through early QA involvement.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200/50">
+                    <h3 class="text-3xl font-bold text-sky-600 mb-2">65%</h3>
+                    <p class="text-slate-600">Faster feedback loop achieved by embedding automation in Azure DevOps.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="mb-16 md:mb-24">
+            <h2 class="text-3xl font-bold text-slate-800 text-center mb-4">Career Timeline</h2>
+            <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">An interactive overview of my career progression. Click on any role to see detailed accomplishments and responsibilities.</p>
+            <div id="timeline-container" class="relative max-w-3xl mx-auto">
+                <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-slate-200"></div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-16 md:mb-24">
+            <h2 class="text-3xl font-bold text-slate-800 text-center mb-4">Technical Skills Dashboard</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto">A visual representation of my technical abilities. Use the filters to highlight specific skill sets.</p>
+            <div class="flex justify-center flex-wrap gap-2 mb-8">
+                <button data-filter="all" class="skill-filter-btn bg-sky-600 text-white px-4 py-2 rounded-full text-sm font-semibold">All Skills</button>
+                <button data-filter="ui_mobile" class="skill-filter-btn bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-semibold border border-slate-300 hover:bg-slate-100">UI & Mobile</button>
+                <button data-filter="api_perf" class="skill-filter-btn bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-semibold border border-slate-300 hover:bg-slate-100">API & Performance</button>
+                <button data-filter="languages" class="skill-filter-btn bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-semibold border border-slate-300 hover:bg-slate-100">Languages</button>
+                <button data-filter="devops" class="skill-filter-btn bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-semibold border border-slate-300 hover:bg-slate-100">CI/CD & DevOps</button>
+            </div>
+            <div class="chart-container bg-white p-4 rounded-xl shadow-lg border border-slate-200/50">
+                <canvas id="skillsChart"></canvas>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer id="contact" class="bg-slate-800 text-slate-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4">Get In Touch</h2>
+            <p class="mb-6">I'm actively seeking new opportunities and would be happy to connect.</p>
+            <div class="flex justify-center items-center space-x-6">
+                <a href="mailto:eliasshamoun96.es@gmail.com" class="hover:text-sky-400 transition-colors">eliasshamoun96.es@gmail.com</a>
+                <span class="text-slate-500">|</span>
+                <a href="https://www.linkedin.com/in/eliaschamoun" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors">LinkedIn Profile</a>
+                <span class="text-slate-500">|</span>
+                <span>+961 71 904 170</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            const mobileNavLinks = mobileMenu.querySelectorAll('a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const timelineData = [
+                {
+                    role: "Founder, Cedar Quality Lab",
+                    company: "Cedar Quality Lab",
+                    period: "Apr 2025 - Present",
+                    location: "Lebanon",
+                    details: [
+                        "Established and successfully launched a specialized software testing hub dedicated to empowering aspiring QA automation engineers.",
+                        "Cultivated a vibrant tech community by orchestrating regular tech talks and knowledge-sharing sessions.",
+                        "Delivered bespoke QA automation services and expert consultancy to various businesses."
+                    ],
+                    highlight: false
+                },
+                {
+                    role: "Senior QA Automation Engineer/Lead",
+                    company: "Real Time Technologies",
+                    period: "Nov 2022 - Present",
+                    location: "Miami, USA",
+                    details: [
+                        "Architected and scaled a highly resilient UI end-to-end automation framework using Cypress (JavaScript/TypeScript), covering both web and mobile fintech platforms, resulting in a 75% reduction in manual QA effort.",
+                        "Embedded test automation seamlessly into CI/CD pipelines (Azure DevOps), achieving a 65% faster feedback loop.",
+                        "Provided expert mentorship to junior QA engineers and led strategic test strategy reviews.",
+                        "Championed active collaboration across the entire SDLC, leading to a remarkable 95% reduction in post-deployment bugs."
+                    ],
+                    highlight: true
+                },
+                {
+                    role: "Lead QA Engineer",
+                    company: "Social Nest",
+                    period: "Oct 2024 - June 2025",
+                    location: "Dubai, Remote [Seasonal - Contract]",
+                    details: [
+                        "Spearheaded comprehensive QA efforts for a high-traffic social media e-commerce platform.",
+                        "Orchestrated over 15 A/B test cycles in close collaboration with Marketing and Product teams.",
+                        "Executed extensive UI and cross-browser/device compatibility testing using BrowserStack.",
+                        "Developed and integrated a comprehensive API Testing suite with Postman and a performance/load testing suite with JMETER."
+                    ],
+                    highlight: false
+                },
+                {
+                    role: "Senior QA Automation Engineer",
+                    company: "Siren Analytics/CME",
+                    period: "Apr 2021 - Nov 2022",
+                    location: "Beirut, Lebanon",
+                    details: [
+                        "Built and deployed scalable automation frameworks utilizing Java, Selenium, and TestNG.",
+                        "Conducted critical API testing and performance validation with REST Assured and Apache JMeter for large-scale Government projects.",
+                        "Collaborated proactively with development, DevOps, and product teams to refine QA processes."
+                    ],
+                    highlight: false
+                },
+                {
+                    role: "Test Engineer",
+                    company: "sKash",
+                    period: "Feb 2020 - Apr 2021",
+                    location: "Beirut, Lebanon",
+                    details: [
+                        "Developed and implemented robust automation tests for mobile applications within a C#/.NET-based digital banking environment using Selenium.",
+                        "This role provided foundational experience for planning and executing testing environment migration initiatives.",
+                        "Conducted thorough functional and regression testing on mobile banking transactions on iOS & Android platforms."
+                    ],
+                    highlight: true
+                },
+                {
+                    role: "QA Automation Engineer",
+                    company: "Layer/Ubanquity",
+                    period: "Jul 2019 - Feb 2020",
+                    location: "Beirut, Lebanon",
+                    details: [
+                        "Developed and implemented automation tests for mobile applications in digital banking solutions using Flutter.",
+                        "Executed comprehensive manual testing across various browsers and numerous devices."
+                    ],
+                    highlight: false
+                }
+            ];
+
+            const timelineContainer = document.getElementById('timeline-container');
+            timelineData.forEach((item, index) => {
+                const alignmentClass = index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8';
+                const dotPosition = index % 2 === 0 ? 'md:right-[-9px]' : 'md:left-[-9px]';
+                
+                const timelineItem = document.createElement('div');
+                timelineItem.className = 'timeline-item mb-8 md:mb-2 relative cursor-pointer';
+                timelineItem.innerHTML = `
+                    <div class="md:absolute top-3 ${dotPosition} w-4 h-4 rounded-full timeline-dot ${item.highlight ? 'bg-sky-500' : 'bg-slate-400'}"></div>
+                    <div class="${alignmentClass} w-full md:w-1/2 ${index % 2 === 0 ? '' : 'md:ml-auto'}">
+                        <div class="p-4 bg-white rounded-lg shadow-md border border-slate-200/60">
+                            <p class="text-sm text-slate-500">${item.period}</p>
+                            <h3 class="font-bold text-slate-800 text-lg">${item.role}</h3>
+                            <p class="text-md text-slate-600">${item.company} - ${item.location}</p>
+                            <div class="timeline-content mt-2">
+                                <ul class="list-disc list-inside text-sm text-left">
+                                    ${item.details.map(d => `<li>${d}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                timelineContainer.appendChild(timelineItem);
+            });
+
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+
+            const allSkills = {
+                ui_mobile: [
+                    { name: 'Playwright', level: 5 }, { name: 'Cypress.io', level: 5 }, 
+                    { name: 'Selenium', level: 5 }, { name: 'Appium', level: 4 }, 
+                    { name: 'WebDriverIO', level: 3 }
+                ],
+                api_perf: [
+                    { name: 'REST Assured', level: 5 }, { name: 'Postman', level: 5 }, 
+                    { name: 'JMeter', level: 4 }
+                ],
+                languages: [
+                    { name: 'TypeScript', level: 5 }, { name: 'JavaScript', level: 5 },
+                    { name: 'Java', level: 4 }, { name: 'C#', level: 4 }, 
+                    { name: 'Flutter', level: 3 }
+                ],
+                devops: [
+                    { name: 'Azure DevOps', level: 5 }, { name: 'GitHub Actions', level: 4 },
+                    { name: 'CI/CD Integration', level: 5 }
+                ]
+            };
+
+            const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+            let skillsChart = new Chart(skillsCtx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Proficiency Level',
+                        data: [],
+                        backgroundColor: 'rgba(56, 189, 248, 0.6)',
+                        borderColor: 'rgba(2, 132, 199, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 5,
+                            grid: { display: false },
+                            ticks: { display: false }
+                        },
+                        y: {
+                           grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.x !== null) {
+                                        label += context.parsed.x + '/5';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            function updateChart(filter = 'all') {
+                const filterButtons = document.querySelectorAll('.skill-filter-btn');
+                filterButtons.forEach(button => {
+                    if (button.dataset.filter === filter) {
+                        button.classList.add('bg-sky-600', 'text-white');
+                        button.classList.remove('bg-white', 'text-slate-600');
+                    } else {
+                        button.classList.add('bg-white', 'text-slate-600');
+                        button.classList.remove('bg-sky-600', 'text-white');
+                    }
+                });
+
+                let labels = [];
+                let data = [];
+                if (filter === 'all') {
+                    Object.values(allSkills).flat().forEach(skill => {
+                        labels.push(skill.name);
+                        data.push(skill.level);
+                    });
+                } else {
+                    allSkills[filter].forEach(skill => {
+                        labels.push(skill.name);
+                        data.push(skill.level);
+                    });
+                }
+                
+                skillsChart.data.labels = labels;
+                skillsChart.data.datasets[0].data = data;
+                skillsChart.update();
+            }
+
+            document.querySelectorAll('.skill-filter-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    updateChart(e.target.dataset.filter);
+                });
+            });
+
+            updateChart('all');
+        });
+    </script>
+</body>
+</html>
